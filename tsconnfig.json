@@ -1,11 +1,17 @@
 {
   "compilerOptions": {
-      "sourceMap": true,
-      "module": "commonjs",
-      "strict": true,
-      "target": "es2017"
+    "baseUrl": ".",
+    "paths": {
+      "types/*": [
+        "client/types/*.d.ts"
+      ]
+    },
+    "sourceMap": true,
+    "module": "commonjs",
+    "strict": true,
+    "target": "es2017"
   },
   "include": [
-      "src/**/*"
+    "src/**/*"
   ]
 }
