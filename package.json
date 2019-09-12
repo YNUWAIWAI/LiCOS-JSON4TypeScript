@@ -20,5 +20,8 @@
     "prettier": "prettier --write 'src/**/*.ts'",
     "prettier:check": "prettier -c 'src/**/*.ts'",
     "test:watch": "jest --watch"
+  },
+  "dependencies": {
+    "redux": "^4.0.4"
   }
 }
