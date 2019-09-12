@@ -2,6 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "client/*": [
+        "client/src/scripts/*"
+      ],
       "types/*": [
         "client/types/*.d.ts"
       ]
