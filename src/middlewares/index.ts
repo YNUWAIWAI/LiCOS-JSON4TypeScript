@@ -4,11 +4,9 @@ import {Dispatch, MiddlewareAPI, applyMiddleware} from 'redux'
 import {ReducerState} from '../reducers'
 import client2server from './client2server'
 import flavorText from 'client/village/middlewares/flavorText'
-import indexedDB from 'client/village/middlewares/indexedDB'
 import socket from 'client/village/middlewares/socket'
 import timeWatcher from 'client/village/middlewares/timeWatcher'
 import timer from 'client/village/middlewares/timer'
-import windowLocation from 'client/village/middlewares/windowLocation'
 
 type Action =
   | actions.ActivateNextButton
@@ -35,7 +33,6 @@ type Action =
   | actions.SocketSend
   | actions.StarChat
   | actions.Tick
-  | {type: ActionTypes.indexedDB.INIT}
   | {type: ActionTypes.socket.INIT}
   | {type: ActionTypes.global.PROLOGUE}
 
@@ -48,10 +45,8 @@ const middleware = applyMiddleware(
   }),
   client2server,
   flavorText,
-  indexedDB,
   timer,
-  timeWatcher,
-  windowLocation
+  timeWatcher
 )
 
 export default middleware
