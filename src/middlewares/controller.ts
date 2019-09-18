@@ -1,16 +1,9 @@
-import * as village from 'types/village'
 import * as ActionTypes from 'client/village/constants/ActionTypes'
+import * as village from 'types/village'
 import {Middleware} from '.'
-import {ReducerState} from '../reducers'
 import {postChat, selectOption} from 'client/village/actions'
+import {Process} from '..'
 
-export interface Process {
-  sendChat: (send: (text: string) => void, json: village.Payload$playerMessage, state: ReducerState) => void
-  hunterVote: (send: (id: village.AgentId) => void, json: village.Payload$systemMessage, state: ReducerState) => void
-  noonVote: (send: (id: village.AgentId) => void, json: village.Payload$systemMessage, state: ReducerState) => void
-  seerVote: (send: (id: village.AgentId) => void, json: village.Payload$systemMessage, state: ReducerState) => void
-  werewolfVote: (send: (id: village.AgentId) => void, json: village.Payload$systemMessage, state: ReducerState) => void
-}
 const controller: (process: Process) => Middleware = process => store => next => action => {
   const chat = (text: string) => {
     store.dispatch(
