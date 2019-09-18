@@ -3,6 +3,7 @@ import * as actions from 'client/village/actions'
 import {Dispatch, MiddlewareAPI, applyMiddleware} from 'redux'
 import {ReducerState} from '../reducers'
 import client2server from './client2server'
+import controller, {Process} from './controller'
 import flavorText from 'client/village/middlewares/flavorText'
 import socket from 'client/village/middlewares/socket'
 import timeWatcher from 'client/village/middlewares/timeWatcher'
@@ -39,14 +40,15 @@ type Action =
 export type Middleware = (store: MiddlewareAPI<Dispatch<Action>, ReducerState>) => (next: Dispatch<Action>) => (action: Action) => Action
 
 const url = 'url'
-const middleware = applyMiddleware(
+const getMiddleware = (process: Process) => applyMiddleware(
   socket({
     url
   }),
   client2server,
+  controller(process),
   flavorText,
   timer,
   timeWatcher
 )
 
-export default middleware
+export default getMiddleware
