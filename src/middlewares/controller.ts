@@ -4,7 +4,9 @@ import {Middleware} from '.'
 import {postChat, selectOption} from 'client/village/actions'
 import {Process} from '..'
 
-const controller: (process: Process) => Middleware = process => store => next => action => {
+const controller: (
+  process: Process
+) => Middleware = process => store => next => action => {
   const chat = (text: string) => {
     store.dispatch(
       postChat({
@@ -14,9 +16,7 @@ const controller: (process: Process) => Middleware = process => store => next =>
     )
   }
   const vote = (id: village.AgentId) => {
-    store.dispatch(
-      selectOption(id)
-    )
+    store.dispatch(selectOption(id))
   }
 
   switch (action.type) {

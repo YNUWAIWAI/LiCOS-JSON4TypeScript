@@ -38,18 +38,21 @@ type Action =
   | {type: ActionTypes.socket.INIT}
   | {type: ActionTypes.global.PROLOGUE}
 
-export type Middleware = (store: MiddlewareAPI<Dispatch<Action>, ReducerState>) => (next: Dispatch<Action>) => (action: Action) => Action
+export type Middleware = (
+  store: MiddlewareAPI<Dispatch<Action>, ReducerState>
+) => (next: Dispatch<Action>) => (action: Action) => Action
 
 const url = 'url'
-const getMiddleware = (process: Process) => applyMiddleware(
-  socket({
-    url
-  }),
-  client2server,
-  controller(process),
-  flavorText,
-  timer,
-  timeWatcher
-)
+const getMiddleware = (process: Process) =>
+  applyMiddleware(
+    socket({
+      url
+    }),
+    client2server,
+    controller(process),
+    flavorText,
+    timer,
+    timeWatcher
+  )
 
 export default getMiddleware

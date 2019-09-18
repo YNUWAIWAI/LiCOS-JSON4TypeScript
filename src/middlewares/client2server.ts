@@ -1,6 +1,10 @@
 import * as ActionTypes from 'client/village/constants/ActionTypes'
 import * as village from 'types/village'
-import {getChannelFromInputChennel, just, strToRoleId} from 'client/village/util'
+import {
+  getChannelFromInputChennel,
+  just,
+  strToRoleId
+} from 'client/village/util'
 import {Middleware} from '.'
 import {socket} from 'client/village/actions'
 
@@ -16,61 +20,61 @@ const client2server: Middleware = store => next => action => {
         role: strToRoleId(myRole.name.en)
       })
       const payload: village.Payload$playerMessage = {
-        '@context': [
-          village.BaseContext.Base,
-          village.BaseContext.Chat
-        ],
+        '@context': [village.BaseContext.Base, village.BaseContext.Chat],
         '@id': `${state.base['@id']}/playerMessage`,
-        'agent': {
+        agent: {
           '@context': village.Context.Agent,
           '@id': myAgent['@id'],
-          'id': myAgent.id,
-          'image': myAgent.image,
-          'name': myAgent.name
+          id: myAgent.id,
+          image: myAgent.image,
+          name: myAgent.name
         },
-        'characterLimit': state.base.village.chatSettings.characterLimit,
-        'clientTimestamp': getTimestamp(),
-        'date': state.base.date,
-        'directionality': village.Directionality.clientToServer,
-        'extensionalDisclosureRange': [],
-        'intensionalDisclosureRange': channel,
-        'isMine': true,
-        'isOver': false,
-        'myAgent': {
+        characterLimit: state.base.village.chatSettings.characterLimit,
+        clientTimestamp: getTimestamp(),
+        date: state.base.date,
+        directionality: village.Directionality.clientToServer,
+        extensionalDisclosureRange: [],
+        intensionalDisclosureRange: channel,
+        isMine: true,
+        isOver: false,
+        myAgent: {
           '@context': village.Context.Agent,
           '@id': myAgent['@id'],
-          'id': myAgent.id,
-          'image': myAgent.image,
-          'name': myAgent.name,
-          'role': {
+          id: myAgent.id,
+          image: myAgent.image,
+          name: myAgent.name,
+          role: {
             '@context': village.Context.Role,
             '@id': myRole['@id'],
-            'image': myRole.image,
-            'name': myRole.name
+            image: myRole.image,
+            name: myRole.name
           }
         },
-        'phase': state.base.phase === village.Phase.result ? village.Phase.postMortem : state.base.phase,
-        'phaseStartTime': state.base.phaseStartTime,
-        'phaseTimeLimit': state.base.phaseTimeLimit,
-        'serverTimestamp': state.base.serverTimestamp,
-        'text': {
+        phase:
+          state.base.phase === village.Phase.result
+            ? village.Phase.postMortem
+            : state.base.phase,
+        phaseStartTime: state.base.phaseStartTime,
+        phaseTimeLimit: state.base.phaseTimeLimit,
+        serverTimestamp: state.base.serverTimestamp,
+        text: {
           '@language': state.language,
           '@value': action.text
         },
-        'token': state.base.token,
-        'village': {
+        token: state.base.token,
+        village: {
           '@context': village.Context.Village,
           '@id': state.base.village['@id'],
-          'chatSettings': {
+          chatSettings: {
             '@context': village.Context.ChatSettings,
             '@id': `${state.base['@id']}/chatSettings`,
-            'characterLimit': state.base.village.chatSettings.characterLimit,
-            'limit': state.base.village.chatSettings.limit
+            characterLimit: state.base.village.chatSettings.characterLimit,
+            limit: state.base.village.chatSettings.limit
           },
-          'id': state.base.village.id,
-          'lang': state.base.village.lang,
-          'name': state.base.village.name,
-          'totalNumberOfAgents': state.base.village.totalNumberOfAgents
+          id: state.base.village.id,
+          lang: state.base.village.lang,
+          name: state.base.village.name,
+          totalNumberOfAgents: state.base.village.totalNumberOfAgents
         }
       }
 
@@ -95,54 +99,51 @@ const client2server: Middleware = store => next => action => {
       const myRole = just(state.mine.role)
       const myAgent = just(state.mine.agent)
       const payload: village.Payload$voteMessage = {
-        '@context': [
-          village.BaseContext.Base,
-          village.BaseContext.Vote
-        ],
+        '@context': [village.BaseContext.Base, village.BaseContext.Vote],
         '@id': `${state.base['@id']}/voteMessage`,
-        'agent': {
+        agent: {
           '@context': village.Context.Agent,
           '@id': votedAgent['@id'],
-          'id': Number(votedAgent.id),
-          'image': votedAgent.image,
-          'name': votedAgent.name
+          id: Number(votedAgent.id),
+          image: votedAgent.image,
+          name: votedAgent.name
         },
-        'clientTimestamp': getTimestamp(),
-        'date': state.base.date,
-        'directionality': village.Directionality.clientToServer,
-        'extensionalDisclosureRange': [],
-        'intensionalDisclosureRange': village.Channel.private,
-        'myAgent': {
+        clientTimestamp: getTimestamp(),
+        date: state.base.date,
+        directionality: village.Directionality.clientToServer,
+        extensionalDisclosureRange: [],
+        intensionalDisclosureRange: village.Channel.private,
+        myAgent: {
           '@context': village.Context.Agent,
           '@id': myAgent['@id'],
-          'id': myAgent.id,
-          'image': myAgent.image,
-          'name': myAgent.name,
-          'role': {
+          id: myAgent.id,
+          image: myAgent.image,
+          name: myAgent.name,
+          role: {
             '@context': village.Context.Role,
             '@id': myRole['@id'],
-            'image': myRole.image,
-            'name': myRole.name
+            image: myRole.image,
+            name: myRole.name
           }
         },
-        'phase': state.base.phase,
-        'phaseStartTime': state.base.phaseStartTime,
-        'phaseTimeLimit': state.base.phaseTimeLimit,
-        'serverTimestamp': state.base.serverTimestamp,
-        'token': state.base.token,
-        'village': {
+        phase: state.base.phase,
+        phaseStartTime: state.base.phaseStartTime,
+        phaseTimeLimit: state.base.phaseTimeLimit,
+        serverTimestamp: state.base.serverTimestamp,
+        token: state.base.token,
+        village: {
           '@context': village.Context.Village,
           '@id': state.base.village['@id'],
-          'chatSettings': {
+          chatSettings: {
             '@context': village.Context.ChatSettings,
             '@id': `${state.base['@id']}/chatSettings`,
-            'characterLimit': state.base.village.chatSettings.characterLimit,
-            'limit': state.base.village.chatSettings.limit
+            characterLimit: state.base.village.chatSettings.characterLimit,
+            limit: state.base.village.chatSettings.limit
           },
-          'id': state.base.village.id,
-          'lang': state.base.village.lang,
-          'name': state.base.village.name,
-          'totalNumberOfAgents': state.base.village.totalNumberOfAgents
+          id: state.base.village.id,
+          lang: state.base.village.lang,
+          name: state.base.village.name,
+          totalNumberOfAgents: state.base.village.totalNumberOfAgents
         }
       }
 
@@ -166,7 +167,10 @@ const client2server: Middleware = store => next => action => {
           return next(action)
         }
         case village.Message.playerMessage: {
-          if (action.payload.phase === village.Phase.flavorText || action.payload.phase === village.Phase.result) {
+          if (
+            action.payload.phase === village.Phase.flavorText ||
+            action.payload.phase === village.Phase.result
+          ) {
             return next(action)
           }
           const payload: village.Payload$receivedPlayerMessage = {
