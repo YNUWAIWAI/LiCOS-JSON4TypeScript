@@ -1,7 +1,7 @@
 {
   "name": "@licos/json4typescript",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": "git@github.com:YNUWAIWAI/LiCOS-JSON4TypeScript.git",
   "author": "Yudai Udagawa <nimius.rd@gmail.com>",
   "devDependencies": {
