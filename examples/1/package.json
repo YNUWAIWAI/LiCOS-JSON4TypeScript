@@ -1,0 +1,10 @@
+{
+  "name": "1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@licos/json4typescript": "../../",
+    "typescript": "^3.6.3"
+  }
+}
