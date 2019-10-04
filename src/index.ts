@@ -3,10 +3,21 @@ import * as village from 'types/village'
 import {createStore} from 'redux'
 import getMiddleware from './middlewares'
 import {ReducerState} from './reducers'
+import {postChat} from 'client/village/actions'
 import reducer from './reducers'
 
 export interface Process {
-  sendChat: (
+  sendPrivateChat: (
+    send: (text: string) => void,
+    json: village.Payload$playerMessage,
+    state: ReducerState
+  ) => void
+  sendPublicChat: (
+    send: (text: string) => void,
+    json: village.Payload$playerMessage,
+    state: ReducerState
+  ) => void
+  sendWerewolfChat: (
     send: (text: string) => void,
     json: village.Payload$playerMessage,
     state: ReducerState
@@ -41,4 +52,29 @@ export const connect = (process: Process) => {
   store.dispatch({
     type: ActionTypes.global.PROLOGUE
   })
+
+  const sendPrivateChat = (text: string) => {
+    postChat({
+      channel: village.InputChannel.private,
+      text
+    })
+  }
+  const sendPublicChat = (text: string) => {
+    postChat({
+      channel: village.InputChannel.public,
+      text
+    })
+  }
+  const sendWerewolfChat = (text: string) => {
+    postChat({
+      channel: village.InputChannel.limited,
+      text
+    })
+  }
+
+  return {
+    sendPrivateChat,
+    sendPublicChat,
+    sendWerewolfChat
+  }
 }

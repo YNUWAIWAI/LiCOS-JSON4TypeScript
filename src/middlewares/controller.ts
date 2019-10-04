@@ -7,10 +7,10 @@ import {Process} from '..'
 const controller: (
   process: Process
 ) => Middleware = process => store => next => action => {
-  const chat = (text: string) => {
+  const chat = (channel: village.InputChannel) => (text: string) => {
     store.dispatch(
       postChat({
-        channel: village.InputChannel.public,
+        channel,
         text
       })
     )
@@ -26,7 +26,9 @@ const controller: (
 
       switch (payload['@payload']) {
         case village.Message.playerMessage: {
-          process.sendChat(chat, payload, state)
+          process.sendPrivateChat(chat(village.InputChannel.private), payload, state)
+          process.sendPublicChat(chat(village.InputChannel.public), payload, state)
+          process.sendWerewolfChat(chat(village.InputChannel.limited), payload, state)
           break
         }
         case village.Message.systemMessage: {
