@@ -12,10 +12,11 @@
     "sourceMap": true,
     "module": "commonjs",
     "strict": true,
-    "target": "es2017"
+    "target": "es2017",
+    "declaration": true,
+    "outDir": "dist"
   },
   "include": [
-    "src/**/*",
-    "__tests__/**/*"
+    "src/**/*"
   ]
 }

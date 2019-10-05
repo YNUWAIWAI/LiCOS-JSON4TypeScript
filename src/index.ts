@@ -1,8 +1,8 @@
 import * as ActionTypes from 'client/village/constants/ActionTypes'
 import * as village from 'types/village'
+import {ReducerState} from './reducers'
 import {createStore} from 'redux'
 import getMiddleware from './middlewares'
-import {ReducerState} from './reducers'
 import {postChat} from 'client/village/actions'
 import reducer from './reducers'
 
@@ -43,6 +43,7 @@ export interface Process {
     state: ReducerState
   ) => void
 }
+
 export const connect = (process: Process) => {
   const store = createStore(reducer, getMiddleware(process))
 

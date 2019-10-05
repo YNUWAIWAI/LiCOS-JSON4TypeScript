@@ -1,14 +1,17 @@
 {
   "name": "@licos/json4typescript",
-  "version": "0.0.1",
-  "main": "dist/index.js",
+  "version": "0.0.10",
+  "main": "dist/index",
+  "types": "dist/src/index.d.ts",
   "repository": "git@github.com:YNUWAIWAI/LiCOS-JSON4TypeScript.git",
-  "author": "Yudai Udagawa <nimius.rd@gmail.com>",
+  "author": "nimiusrd<nimius.rd@gmail.com>",
   "devDependencies": {
     "@types/jest": "^24.0.18",
     "jest": "^24.9.0",
     "prettier": "1.18.2",
     "rollup": "^1.20.3",
+    "rollup-plugin-alias": "^2.0.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-typescript": "^1.0.1",
     "ts-jest": "^24.0.2",
     "tslib": "^1.10.0",
@@ -19,9 +22,16 @@
     "test": "jest",
     "prettier": "prettier --write 'src/**/*.ts'",
     "prettier:check": "prettier -c 'src/**/*.ts'",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "prepare": "yarn build && yarn tsc"
   },
   "dependencies": {
     "redux": "^4.0.4"
-  }
+  },
+  "files": [
+    "client",
+    "dist",
+    "package.json",
+    "README.md"
+  ]
 }
