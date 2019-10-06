@@ -1,12 +1,11 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "module": "commonJS",
+    "module": "commonjs",
     "strict": true,
     "target": "es2018",
     "declaration": true,
-    "declarationDir": "dist",
-    "outDir": "dist",
+    "outDir": "lib",
     "types": [
       "node"
     ]
