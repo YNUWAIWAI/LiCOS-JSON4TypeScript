@@ -1,6 +1,6 @@
 {
   "name": "@licos/json4typescript",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "main": "lib/src/index.js",
   "types": "lib/src/index.d.ts",
   "repository": "git@github.com:YNUWAIWAI/LiCOS-JSON4TypeScript.git",
