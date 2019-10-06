@@ -1,23 +1,23 @@
-import base, {State as baseState} from 'client/village/reducers/base'
-import chat, {State as chatState} from 'client/village/reducers/chat'
-import command, {State as commandState} from 'client/village/reducers/command'
+import base, {State as baseState} from '../../client/src/scripts/village/reducers/base'
+import chat, {State as chatState} from '../../client/src/scripts/village/reducers/chat'
+import command, {State as commandState} from '../../client/src/scripts/village/reducers/command'
 import commandGrave, {
   State as commandGraceState
-} from 'client/village/reducers/commandGrave'
+} from '../../client/src/scripts/village/reducers/commandGrave'
 import commandInputBox, {
   State as commandInputBoxState
-} from 'client/village/reducers/commandInputBox'
+} from '../../client/src/scripts/village/reducers/commandInputBox'
 import commandPostMortem, {
   State as commandPostMortemState
-} from 'client/village/reducers/commandPostMortem'
+} from '../../client/src/scripts/village/reducers/commandPostMortem'
 import commandSelection, {
   State as commandSelectionState
-} from 'client/village/reducers/commandSelection'
+} from '../../client/src/scripts/village/reducers/commandSelection'
 import language, {
   State as languageState
-} from 'client/village/reducers/language'
-import mine, {State as mineState} from 'client/village/reducers/mine'
-import result, {State as resultState} from 'client/village/reducers/result'
+} from '../../client/src/scripts/village/reducers/language'
+import mine, {State as mineState} from '../../client/src/scripts/village/reducers/mine'
+import result, {State as resultState} from '../../client/src/scripts/village/reducers/result'
 import {combineReducers} from 'redux'
 
 const reducer = combineReducers({

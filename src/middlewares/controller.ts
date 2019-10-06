@@ -1,7 +1,7 @@
-import * as ActionTypes from 'client/village/constants/ActionTypes'
-import * as village from 'types/village'
+import * as ActionTypes from '../../client/src/scripts/village/constants/ActionTypes'
+import * as village from '../../types/village'
 import {Middleware} from '.'
-import {postChat, selectOption} from 'client/village/actions'
+import {postChat, selectOption} from '../../client/src/scripts/village/actions'
 import {Process} from '..'
 
 const controller: (

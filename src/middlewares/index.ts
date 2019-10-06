@@ -1,14 +1,14 @@
-import * as ActionTypes from 'client/village/constants/ActionTypes'
-import * as actions from 'client/village/actions'
+import * as ActionTypes from '../../client/src/scripts/village/constants/ActionTypes'
+import * as actions from '../../client/src/scripts/village/actions'
 import {Dispatch, MiddlewareAPI, applyMiddleware} from 'redux'
 import {Process} from '..'
 import {ReducerState} from '../reducers'
 import client2server from './client2server'
 import controller from './controller'
-import flavorText from 'client/village/middlewares/flavorText'
-import socket from 'client/village/middlewares/socket'
-import timeWatcher from 'client/village/middlewares/timeWatcher'
-import timer from 'client/village/middlewares/timer'
+import flavorText from '../../client/src/scripts/village/middlewares/flavorText'
+import socket from '../../client/src/scripts/village/middlewares/socket'
+import timeWatcher from '../../client/src/scripts/village/middlewares/timeWatcher'
+import timer from '../../client/src/scripts/village/middlewares/timer'
 
 type Action =
   | actions.ActivateNextButton

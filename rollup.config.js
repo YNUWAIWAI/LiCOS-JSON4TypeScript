@@ -1,18 +1,35 @@
-import resolve from 'rollup-plugin-node-resolve'
+import {terser} from 'rollup-plugin-terser'
 import typescript from 'rollup-plugin-typescript'
 
 export default {
+  external: [
+    'redux'
+  ],
   input: 'src/index.ts',
   output: [
     {
-      file: 'dist/index.js',
-      format: 'cjs'
+      file: 'dist/json4typescript.js',
+      format: 'cjs',
+      globals: {
+        redux: 'Redux'
+      },
+      name: 'dev'
+    },
+    {
+      file: 'dist/json4typescript.min.js',
+      format: 'cjs',
+      globals: {
+        redux: 'Redux'
+      },
+      name: 'min'
     }
   ],
   plugins: [
     typescript(),
-    resolve({
-      extensions: ['.mjs', '.js', '.jsx', '.json', '.ts']
+    terser({
+      include: [
+        /^.+\.min\.js$/
+      ]
     })
   ]
 }

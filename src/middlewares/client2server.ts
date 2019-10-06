@@ -1,12 +1,12 @@
-import * as ActionTypes from 'client/village/constants/ActionTypes'
-import * as village from 'types/village'
+import * as ActionTypes from '../../client/src/scripts/village/constants/ActionTypes'
+import * as village from '../../types/village'
 import {
   getChannelFromInputChennel,
   just,
   strToRoleId
-} from 'client/village/util'
+} from '../../client/src/scripts/village/util'
 import {Middleware} from '.'
-import {socket} from 'client/village/actions'
+import {socket} from '../../client/src/scripts/village/actions'
 
 const getTimestamp = () => new Date().toISOString()
 const client2server: Middleware = store => next => action => {

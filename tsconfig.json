@@ -1,22 +1,18 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "client/*": [
-        "client/src/scripts/*"
-      ],
-      "types/*": [
-        "client/types/*.d.ts"
-      ]
-    },
     "sourceMap": true,
-    "module": "commonjs",
+    "module": "commonJS",
     "strict": true,
-    "target": "es2017",
+    "target": "es2018",
     "declaration": true,
-    "outDir": "dist"
+    "declarationDir": "dist",
+    "outDir": "dist",
+    "types": [
+      "node"
+    ]
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "types/*"
   ]
 }

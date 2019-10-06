@@ -1,9 +1,9 @@
-import * as ActionTypes from 'client/village/constants/ActionTypes'
-import * as village from 'types/village'
+import * as ActionTypes from '../client/src/scripts/village/constants/ActionTypes'
+import * as village from '../types/village'
 import {ReducerState} from './reducers'
 import {createStore} from 'redux'
 import getMiddleware from './middlewares'
-import {postChat} from 'client/village/actions'
+import {postChat} from '../client/src/scripts/village/actions'
 import reducer from './reducers'
 
 export interface Process {
