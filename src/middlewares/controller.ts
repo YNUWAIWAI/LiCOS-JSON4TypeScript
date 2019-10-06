@@ -26,9 +26,21 @@ const controller: (
 
       switch (payload['@payload']) {
         case village.Message.playerMessage: {
-          process.sendPrivateChat(chat(village.InputChannel.private), payload, state)
-          process.sendPublicChat(chat(village.InputChannel.public), payload, state)
-          process.sendWerewolfChat(chat(village.InputChannel.limited), payload, state)
+          process.sendPrivateChat(
+            chat(village.InputChannel.private),
+            payload,
+            state
+          )
+          process.sendPublicChat(
+            chat(village.InputChannel.public),
+            payload,
+            state
+          )
+          process.sendWerewolfChat(
+            chat(village.InputChannel.limited),
+            payload,
+            state
+          )
           break
         }
         case village.Message.systemMessage: {

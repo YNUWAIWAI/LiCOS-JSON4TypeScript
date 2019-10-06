@@ -1,6 +1,12 @@
-import base, {State as baseState} from '../../client/src/scripts/village/reducers/base'
-import chat, {State as chatState} from '../../client/src/scripts/village/reducers/chat'
-import command, {State as commandState} from '../../client/src/scripts/village/reducers/command'
+import base, {
+  State as baseState
+} from '../../client/src/scripts/village/reducers/base'
+import chat, {
+  State as chatState
+} from '../../client/src/scripts/village/reducers/chat'
+import command, {
+  State as commandState
+} from '../../client/src/scripts/village/reducers/command'
 import commandGrave, {
   State as commandGraceState
 } from '../../client/src/scripts/village/reducers/commandGrave'
@@ -16,8 +22,12 @@ import commandSelection, {
 import language, {
   State as languageState
 } from '../../client/src/scripts/village/reducers/language'
-import mine, {State as mineState} from '../../client/src/scripts/village/reducers/mine'
-import result, {State as resultState} from '../../client/src/scripts/village/reducers/result'
+import mine, {
+  State as mineState
+} from '../../client/src/scripts/village/reducers/mine'
+import result, {
+  State as resultState
+} from '../../client/src/scripts/village/reducers/result'
 import {combineReducers} from 'redux'
 
 const reducer = combineReducers({
