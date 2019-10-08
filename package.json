@@ -1,11 +1,28 @@
 {
   "name": "@licos/json4typescript",
   "version": "0.0.26",
+  "repository": "git@github.com:YNUWAIWAI/LiCOS-JSON4TypeScript.git",
+  "license": "MIT",
+  "author": "nimiusrd<nimius.rd@gmail.com>",
+  "files": [
+    "dist",
+    "lib",
+    "package.json",
+    "README.md"
+  ],
   "main": "lib/src/index.js",
   "types": "lib/src/index.d.ts",
-  "repository": "git@github.com:YNUWAIWAI/LiCOS-JSON4TypeScript.git",
-  "author": "nimiusrd<nimius.rd@gmail.com>",
-  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "yarn build && yarn tsc",
+    "prettier": "prettier --write 'src/**/*.ts'",
+    "prettier:check": "prettier -c 'src/**/*.ts'",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "dependencies": {
+    "redux": "^4.0.4"
+  },
   "devDependencies": {
     "@types/jest": "^24.0.18",
     "jest": "^24.9.0",
@@ -17,24 +34,7 @@
     "tslib": "^1.10.0",
     "typescript": "^3.6.2"
   },
-  "scripts": {
-    "build": "rollup -c",
-    "test": "jest",
-    "prettier": "prettier --write 'src/**/*.ts'",
-    "prettier:check": "prettier -c 'src/**/*.ts'",
-    "test:watch": "jest --watch",
-    "prepublishOnly": "yarn build && yarn tsc"
-  },
-  "dependencies": {
-    "redux": "^4.0.4"
-  },
   "publishConfig": {
     "access": "public"
-  },
-  "files": [
-    "dist",
-    "lib",
-    "package.json",
-    "README.md"
-  ]
+  }
 }
